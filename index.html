@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden State Warriors | Encyclopedia Redesign</title>
+  <meta name="description" content="A usability- and accessibility-focused redesign of the Wikipedia article on the Golden State Warriors.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Apply saved appearance before first paint to avoid a flash of the wrong theme.
+    try {
+      var s = JSON.parse(localStorage.getItem('appearance') || '{}');
+      if (s.theme) document.documentElement.dataset.theme = s.theme;
+      if (s.size) document.documentElement.dataset.size = s.size;
+    } catch (e) {}
+  </script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#top">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M2 16h28M16 2v28M6 6c5 4 5 16 0 20M26 6c-5 4-5 16 0 20" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span class="brand__text">Encyclopedia <span class="brand__sub">Redesign</span></span>
+      </a>
+
+      <form class="search" role="search" action="https://en.wikipedia.org/w/index.php" method="get">
+        <label class="search__label" for="search-input">Search Wikipedia</label>
+        <div class="search__row">
+          <input id="search-input" class="search__input" type="search" name="search" placeholder="e.g. Stephen Curry" autocomplete="off">
+          <input type="hidden" name="title" value="Special:Search">
+          <button class="button button--primary" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+  <div class="hero" id="top">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Article · Sports · NBA team</p>
+      <h1 class="hero__title" id="article-title">Golden State Warriors</h1>
+      <p class="hero__lede">A professional basketball team based in San Francisco, founded in Philadelphia in 1946, and winner of seven league championships.</p>
+
+      <nav class="page-actions" aria-label="Article actions">
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Talk:Golden_State_Warriors">Discuss this article</a></li>
+          <li><a href="https://en.wikipedia.org/w/index.php?title=Golden_State_Warriors&amp;action=history">See who edited it</a></li>
+          <li><a href="https://en.wikipedia.org/w/index.php?title=Talk:Golden_State_Warriors&amp;action=edit&amp;section=new">Suggest a correction</a></li>
+        </ul>
+      </nav>
+      <p class="protect-note">
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 7V5a4 4 0 1 1 8 0v2h1v8H3V7zm2 0h4V5a2 2 0 1 0-4 0z" fill="currentColor"/></svg>
+        Only experienced, registered editors can change this article directly, to guard against vandalism. Anyone can suggest a correction.
+      </p>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="Page navigation and settings">
+      <nav class="toc" aria-labelledby="toc-title">
+        <details class="toc__details" open>
+          <summary id="toc-title" class="toc__title">On this page</summary>
+          <ol class="toc__list">
+            <li><a href="#at-a-glance">At a glance</a></li>
+            <li><a href="#championships">Championships</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#roster">Current roster</a></li>
+            <li><a href="#retired-numbers">Retired numbers</a></li>
+            <li><a href="#rivalries">Rivalries</a></li>
+            <li><a href="#arenas">Home arenas</a></li>
+            <li><a href="#sources">Sources</a></li>
+          </ol>
+        </details>
+      </nav>
+
+      <details class="appearance" open>
+        <summary class="appearance__title">Reading settings</summary>
+        <fieldset>
+          <legend>Text size</legend>
+          <label><input type="radio" name="size" value="small"> Small</label>
+          <label><input type="radio" name="size" value="standard" checked> Standard</label>
+          <label><input type="radio" name="size" value="large"> Large</label>
+        </fieldset>
+        <fieldset>
+          <legend>Color theme</legend>
+          <label><input type="radio" name="theme" value="auto" checked> Match device</label>
+          <label><input type="radio" name="theme" value="light"> Light</label>
+          <label><input type="radio" name="theme" value="dark"> Dark</label>
+        </fieldset>
+      </details>
+    </aside>
+
+    <article class="article" aria-labelledby="article-title">
+
+      <section id="at-a-glance" class="glance" aria-labelledby="glance-title">
+        <h2 id="glance-title">At a glance</h2>
+        <ul class="stat-cards">
+          <li class="stat-card"><span class="stat-card__value">7</span><span class="stat-card__label">League championships</span></li>
+          <li class="stat-card"><span class="stat-card__value">1946</span><span class="stat-card__label">Year founded</span></li>
+          <li class="stat-card"><span class="stat-card__value">73–9</span><span class="stat-card__label">Best regular season in NBA history (2015–16)</span></li>
+          <li class="stat-card"><span class="stat-card__value">7</span><span class="stat-card__label">Retired jersey numbers</span></li>
+        </ul>
+
+        <div class="glance__grid">
+          <dl class="facts">
+            <div><dt>League</dt><dd>National Basketball Association (NBA)</dd></div>
+            <div><dt>Conference and division</dt><dd>Western Conference, Pacific Division</dd></div>
+            <div><dt>Home arena</dt><dd>Chase Center, San Francisco, California</dd></div>
+            <div><dt>Head coach</dt><dd>Steve Kerr</dd></div>
+            <div><dt>General manager</dt><dd>Mike Dunleavy Jr.</dd></div>
+            <div><dt>President</dt><dd>Brandon Schneider</dd></div>
+            <div><dt>Owners</dt><dd>Joe Lacob (majority) and Peter Guber</dd></div>
+            <div><dt>G League affiliate</dt><dd>Santa Cruz Warriors</dd></div>
+            <div><dt>Team colors</dt><dd>
+              <ul class="swatches">
+                <li><span class="swatch swatch--blue" aria-hidden="true"></span>Royal blue</li>
+                <li><span class="swatch swatch--gold" aria-hidden="true"></span>Yellow</li>
+                <li><span class="swatch swatch--black" aria-hidden="true"></span>Black</li>
+              </ul>
+            </dd></div>
+            <div><dt>Former names</dt><dd>Philadelphia Warriors (1946–1962), San Francisco Warriors (1962–1971)</dd></div>
+            <div><dt>Official website</dt><dd><a href="https://www.nba.com/warriors">nba.com/warriors</a></dd></div>
+          </dl>
+
+          <figure class="photo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Stephen_Curry_dribbling_2016_%28cropped%29.jpg"
+                 width="640" height="1057" loading="lazy"
+                 alt="Stephen Curry in a white Warriors jersey, number 30, dribbling the ball up the court during a 2016 game.">
+            <figcaption>
+              Stephen Curry, the franchise's all-time leading scorer, in 2016.
+              <span class="credit">Photo: Keith Allison, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Stephen_Curry_dribbling_2016_(cropped).jpg">Wikimedia Commons</a></span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="championships" aria-labelledby="championships-title">
+        <h2 id="championships-title">Championships</h2>
+        <p>The Warriors have won seven titles: one in the Basketball Association of America (BAA), the league that became the NBA in 1949, and six in the NBA.</p>
+        <div class="table-wrap" role="region" aria-labelledby="titles-caption" tabindex="0">
+          <table class="data-table">
+            <caption id="titles-caption">Warriors championships, 1947 to 2022</caption>
+            <thead>
+              <tr><th scope="col">Season</th><th scope="col">League</th><th scope="col">Finals opponent</th><th scope="col">Series result</th><th scope="col">Finals MVP</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">1947</th><td>BAA</td><td>Chicago Stags</td><td>Won 4–1</td><td>Award not yet created</td></tr>
+              <tr><th scope="row">1956</th><td>NBA</td><td>Fort Wayne Pistons</td><td>Won 4–1</td><td>Award not yet created</td></tr>
+              <tr><th scope="row">1975</th><td>NBA</td><td>Washington Bullets</td><td>Won 4–0</td><td>Rick Barry</td></tr>
+              <tr><th scope="row">2015</th><td>NBA</td><td>Cleveland Cavaliers</td><td>Won 4–2</td><td>Andre Iguodala</td></tr>
+              <tr><th scope="row">2017</th><td>NBA</td><td>Cleveland Cavaliers</td><td>Won 4–1</td><td>Kevin Durant</td></tr>
+              <tr><th scope="row">2018</th><td>NBA</td><td>Cleveland Cavaliers</td><td>Won 4–0</td><td>Kevin Durant</td></tr>
+              <tr><th scope="row">2022</th><td>NBA</td><td>Boston Celtics</td><td>Won 4–2</td><td>Stephen Curry</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="history" aria-labelledby="history-title">
+        <div class="section-head">
+          <h2 id="history-title">History</h2>
+          <button class="button button--ghost" type="button" data-toggle-all aria-controls="history-eras">Expand all eras</button>
+        </div>
+        <p>Each era below starts with a short summary. Open an era to read more.</p>
+
+        <ol class="timeline" id="history-eras">
+          <li class="era">
+            <p class="era__years">1946–1962</p>
+            <h3 class="era__title">Philadelphia beginnings</h3>
+            <p>A founding member of the BAA, the Philadelphia Warriors won the league's first championship in 1947 behind scoring star Joe Fulks. A second title came in 1956 with Hall of Famers Paul Arizin, Tom Gola, and Neil Johnston.</p>
+            <details class="era__more">
+              <summary>More about this era</summary>
+              <p>In 1959 the Warriors added Wilt Chamberlain, who won Rookie of the Year and Most Valuable Player in the same season. On March 2, 1962, in Hershey, Pennsylvania, he scored 100 points against the New York Knicks. It is still the NBA's single-game scoring record.</p>
+            </details>
+          </li>
+          <li class="era">
+            <p class="era__years">1962–1971</p>
+            <h3 class="era__title">San Francisco Warriors</h3>
+            <p>The team moved west in 1962 and took the name San Francisco Warriors. Chamberlain led them to the 1964 NBA Finals, where they lost to the Boston Celtics.</p>
+            <details class="era__more">
+              <summary>More about this era</summary>
+              <p>Chamberlain was traded to the Philadelphia 76ers in January 1965, and the team finished the season 17–63, the league's worst record. The rebuild was quick: rookie Rick Barry and center Nate Thurmond took the Warriors back to the Finals in 1967.</p>
+            </details>
+          </li>
+          <li class="era">
+            <p class="era__years">1971–1985</p>
+            <h3 class="era__title">Golden State and the 1975 upset</h3>
+            <p>After moving most home games to Oakland, the team became the Golden State Warriors in 1971. In 1975, coach Al Attles's team swept the heavily favored Washington Bullets for the franchise's third title, with Rick Barry named Finals MVP.</p>
+            <details class="era__more">
+              <summary>More about this era</summary>
+              <p>Forward Jamaal Wilkes was Rookie of the Year on that 1975 team. The success didn't last: the Warriors missed the playoffs in most seasons from the late 1970s to the mid-1980s.</p>
+            </details>
+          </li>
+          <li class="era">
+            <p class="era__years">1985–1997</p>
+            <h3 class="era__title">The “Run TMC” years</h3>
+            <p>Under coach Don Nelson, guards Tim Hardaway and Mitch Richmond and forward Chris Mullin, known as “Run TMC” from their first initials, played a fast, high-scoring style that brought the Warriors back to the playoffs.</p>
+            <details class="era__more">
+              <summary>More about this era</summary>
+              <p>The trio played only two seasons together before Richmond was traded to the Sacramento Kings in 1991. Chris Webber was Rookie of the Year in 1994 but was traded early the next season after a falling-out with Nelson.</p>
+            </details>
+          </li>
+          <li class="era">
+            <p class="era__years">1997–2009</p>
+            <h3 class="era__title">A long drought, then “We Believe”</h3>
+            <p>The Warriors missed the playoffs for 12 straight seasons. In 2007, the “We Believe” team led by Baron Davis beat the 67-win, top-seeded Dallas Mavericks. It was the first time an eighth seed had beaten a first seed in a best-of-seven series.</p>
+            <details class="era__more">
+              <summary>More about this era</summary>
+              <p>Don Nelson returned as head coach in 2006 to lead that run. The next season the team won 48 games but still missed the playoffs in a crowded Western Conference.</p>
+            </details>
+          </li>
+          <li class="era">
+            <p class="era__years">2009–2019</p>
+            <h3 class="era__title">The Stephen Curry era and a dynasty</h3>
+            <p>Stephen Curry (drafted in 2009), Klay Thompson (2011), and Draymond Green (2012) became the core of a team bought by Joe Lacob and Peter Guber in 2010. Under Steve Kerr, hired in 2014, the Warriors reached five straight NBA Finals and won the title in 2015, 2017, and 2018.</p>
+            <details class="era__more">
+              <summary>More about this era</summary>
+              <p>The 2015–16 team went 73–9, the best regular-season record in NBA history, but lost the Finals to Cleveland after leading the series 3–1. Kevin Durant signed that summer and was Finals MVP in both 2017 and 2018. The run ended in the 2019 Finals, a loss to the Toronto Raptors in which Durant and Thompson were both injured.</p>
+            </details>
+          </li>
+          <li class="era">
+            <p class="era__years">2019–present</p>
+            <h3 class="era__title">Chase Center and a fourth modern title</h3>
+            <p>The Warriors moved back to San Francisco in 2019 and opened Chase Center in the Mission Bay neighborhood. After two seasons disrupted by injuries, they won the 2022 championship over the Boston Celtics, and Curry was named Finals MVP for the first time.</p>
+            <details class="era__more">
+              <summary>More about this era</summary>
+              <p>With Curry and Thompson injured for most of 2019–20, the team finished with the league's worst record. Thompson left for the Dallas Mavericks in 2024. In February 2025 the Warriors traded for Jimmy Butler and went on to beat the Houston Rockets in a seven-game first-round series before losing to the Minnesota Timberwolves.</p>
+            </details>
+          </li>
+        </ol>
+      </section>
+
+      <section id="roster" aria-labelledby="roster-title">
+        <h2 id="roster-title">Current roster</h2>
+        <p class="meta">2026–27 season. Roster as listed on Wikipedia on August 27, 2026.</p>
+
+        <div class="legend">
+          <p class="legend__title">Labels used in this table</p>
+          <ul>
+            <li><span class="badge badge--twoway">Two-way contract</span> Splits time between the Warriors and their G League team, the Santa Cruz Warriors.</li>
+            <li><span class="badge badge--injured">Injured</span> Currently out with an injury.</li>
+          </ul>
+        </div>
+
+        <div class="table-wrap" role="region" aria-labelledby="roster-caption" tabindex="0">
+          <table class="data-table data-table--sortable" id="roster-table">
+            <caption id="roster-caption">Players on the 2026–27 roster. Use the column buttons to sort.</caption>
+            <thead>
+              <tr>
+                <th scope="col" aria-sort="ascending"><button type="button" data-sort="text" data-col="0">Player</button></th>
+                <th scope="col"><button type="button" data-sort="number" data-col="1">Jersey number</button></th>
+                <th scope="col"><button type="button" data-sort="text" data-col="2">Position</button></th>
+                <th scope="col"><button type="button" data-sort="number" data-col="3">Height</button></th>
+                <th scope="col"><button type="button" data-sort="number" data-col="4">Weight</button></th>
+                <th scope="col"><button type="button" data-sort="number" data-col="5">Born</button></th>
+                <th scope="col"><button type="button" data-sort="text" data-col="6">College or country</button></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" data-value="Bassey">Charles Bassey</th><td>28</td><td>Forward / Center</td><td data-value="82">6′10″ (2.08 m)</td><td data-value="230">230 lb (104 kg)</td><td data-value="20001028">Oct 28, 2000</td><td>Western Kentucky</td></tr>
+              <tr><th scope="row" data-value="Butler">Jimmy Butler <span class="badge badge--injured">Injured</span></th><td>10</td><td>Forward</td><td data-value="78">6′6″ (1.98 m)</td><td data-value="230">230 lb (104 kg)</td><td data-value="19890914">Sep 14, 1989</td><td>Marquette</td></tr>
+              <tr><th scope="row" data-value="Cryer">LJ Cryer <span class="badge badge--twoway">Two-way contract</span></th><td>18</td><td>Guard</td><td data-value="72">6′0″ (1.83 m)</td><td data-value="200">200 lb (91 kg)</td><td data-value="20011009">Oct 9, 2001</td><td>Houston</td></tr>
+              <tr><th scope="row" data-value="Curry">Stephen Curry</th><td>30</td><td>Guard</td><td data-value="74">6′2″ (1.88 m)</td><td data-value="185">185 lb (84 kg)</td><td data-value="19880314">Mar 14, 1988</td><td>Davidson</td></tr>
+              <tr><th scope="row" data-value="Green">Draymond Green</th><td>23</td><td>Forward</td><td data-value="78">6′6″ (1.98 m)</td><td data-value="230">230 lb (104 kg)</td><td data-value="19900304">Mar 4, 1990</td><td>Michigan State</td></tr>
+              <tr><th scope="row" data-value="Horford">Al Horford</th><td>20</td><td>Forward / Center</td><td data-value="80">6′8″ (2.03 m)</td><td data-value="240">240 lb (109 kg)</td><td data-value="19860603">Jun 3, 1986</td><td>Florida</td></tr>
+              <tr><th scope="row" data-value="Ike">Graham Ike <span class="badge badge--twoway">Two-way contract</span></th><td>45</td><td>Forward / Center</td><td data-value="81">6′9″ (2.06 m)</td><td data-value="250">250 lb (113 kg)</td><td data-value="20020803">Aug 3, 2002</td><td>Gonzaga</td></tr>
+              <tr><th scope="row" data-value="Lendeborg">Yaxel Lendeborg</th><td>1</td><td>Forward</td><td data-value="81">6′9″ (2.06 m)</td><td data-value="240">240 lb (109 kg)</td><td data-value="20020930">Sep 30, 2002</td><td>Michigan</td></tr>
+              <tr><th scope="row" data-value="Leons">Malevy Leons <span class="badge badge--twoway">Two-way contract</span></th><td>33</td><td>Forward</td><td data-value="81">6′9″ (2.06 m)</td><td data-value="210">210 lb (95 kg)</td><td data-value="19990923">Sep 23, 1999</td><td>Bradley</td></tr>
+              <tr><th scope="row" data-value="Melton">De'Anthony Melton</th><td>8</td><td>Guard</td><td data-value="74">6′2″ (1.88 m)</td><td data-value="200">200 lb (91 kg)</td><td data-value="19980528">May 28, 1998</td><td>USC</td></tr>
+              <tr><th scope="row" data-value="Moody">Moses Moody <span class="badge badge--injured">Injured</span></th><td>4</td><td>Guard</td><td data-value="77">6′5″ (1.96 m)</td><td data-value="211">211 lb (96 kg)</td><td data-value="20020531">May 31, 2002</td><td>Arkansas</td></tr>
+              <tr><th scope="row" data-value="Niang">Georges Niang</th><td>32</td><td>Forward</td><td data-value="79">6′7″ (2.01 m)</td><td data-value="230">230 lb (104 kg)</td><td data-value="19930617">Jun 17, 1993</td><td>Iowa State</td></tr>
+              <tr><th scope="row" data-value="Payton">Gary Payton II</th><td>0</td><td>Guard</td><td data-value="74">6′2″ (1.88 m)</td><td data-value="195">195 lb (88 kg)</td><td data-value="19921201">Dec 1, 1992</td><td>Oregon State</td></tr>
+              <tr><th scope="row" data-value="Podziemski">Brandin Podziemski</th><td>2</td><td>Guard</td><td data-value="76">6′4″ (1.93 m)</td><td data-value="205">205 lb (93 kg)</td><td data-value="20030225">Feb 25, 2003</td><td>Santa Clara</td></tr>
+              <tr><th scope="row" data-value="Porzingis">Kristaps Porziņģis</th><td>7</td><td>Center</td><td data-value="86">7′2″ (2.18 m)</td><td data-value="240">240 lb (109 kg)</td><td data-value="19950802">Aug 2, 1995</td><td>Latvia</td></tr>
+              <tr><th scope="row" data-value="Richard">Will Richard</th><td>3</td><td>Guard</td><td data-value="75">6′3″ (1.91 m)</td><td data-value="206">206 lb (93 kg)</td><td data-value="20021224">Dec 24, 2002</td><td>Florida</td></tr>
+              <tr><th scope="row" data-value="Santos">Gui Santos</th><td>15</td><td>Forward</td><td data-value="79">6′7″ (2.01 m)</td><td data-value="185">185 lb (84 kg)</td><td data-value="20020622">Jun 22, 2002</td><td>Brazil</td></tr>
+              <tr><th scope="row" data-value="Terry">Dalen Terry</th><td>21</td><td>Forward</td><td data-value="78">6′6″ (1.98 m)</td><td data-value="195">195 lb (88 kg)</td><td data-value="20020712">Jul 12, 2002</td><td>Arizona</td></tr>
+              <tr><th scope="row" data-value="Williams">Brandon Williams</th><td>12</td><td>Guard</td><td data-value="73">6′1″ (1.85 m)</td><td data-value="190">190 lb (86 kg)</td><td data-value="19991122">Nov 22, 1999</td><td>Arizona</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sr-status" role="status" aria-live="polite" id="sort-status"></p>
+
+        <h3>Coaching staff</h3>
+        <dl class="facts facts--compact">
+          <div><dt>Head coach</dt><dd>Steve Kerr</dd></div>
+          <div><dt>Associate head coach</dt><dd>Frank Vogel</dd></div>
+          <div><dt>Assistant coaches</dt><dd>Ron Adams, Seth Cooper, Bruce Fraser, Nick Kerr, Khalid Robinson, Jacob Rubin, Anthony Vereen, Kris Weems, Drew Yoder</dd></div>
+        </dl>
+      </section>
+
+      <section id="retired-numbers" aria-labelledby="retired-title">
+        <h2 id="retired-title">Retired numbers</h2>
+        <p>No Warriors player will wear these numbers again.</p>
+        <div class="table-wrap" role="region" aria-labelledby="retired-caption" tabindex="0">
+          <table class="data-table">
+            <caption id="retired-caption">Retired Warriors jersey numbers</caption>
+            <thead>
+              <tr><th scope="col">Number</th><th scope="col">Player</th><th scope="col">Position</th><th scope="col">Years with the Warriors</th><th scope="col">Number retired on</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>9</td><th scope="row">Andre Iguodala</th><td>Guard / Forward</td><td>2013–2019, 2021–2023</td><td>Feb 23, 2025</td></tr>
+              <tr><td>13</td><th scope="row">Wilt Chamberlain</th><td>Center</td><td>1959–1965</td><td>Dec 29, 1999</td></tr>
+              <tr><td>14</td><th scope="row">Tom Meschery</th><td>Forward</td><td>1961–1967</td><td>Oct 13, 1967</td></tr>
+              <tr><td>16</td><th scope="row">Al Attles</th><td>Guard</td><td>1960–1971</td><td>Feb 10, 1977</td></tr>
+              <tr><td>17</td><th scope="row">Chris Mullin</th><td>Guard / Forward</td><td>1985–1997, 2000–2001</td><td>Mar 19, 2012</td></tr>
+              <tr><td>24</td><th scope="row">Rick Barry</th><td>Forward</td><td>1965–1967, 1972–1978</td><td>Mar 18, 1988</td></tr>
+              <tr><td>42</td><th scope="row">Nate Thurmond</th><td>Center</td><td>1963–1974</td><td>Mar 8, 1978</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="rivalries" aria-labelledby="rivalries-title">
+        <h2 id="rivalries-title">Rivalries</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Cleveland Cavaliers</h3>
+            <p>The teams met in four straight NBA Finals from 2015 to 2018, a first for any pair of NBA teams. The Warriors won three of them.</p>
+          </article>
+          <article class="card">
+            <h3>Los Angeles Lakers</h3>
+            <p>Both franchises moved to California in the early 1960s. The rivalry heated up after LeBron James joined the Lakers, who beat the Warriors in the 2023 Western Conference semifinals.</p>
+          </article>
+          <article class="card">
+            <h3>Sacramento Kings</h3>
+            <p>A Northern California rivalry between cities about 86 miles apart. The teams first met in the playoffs in 2023, when the Warriors won a hard-fought series in seven games.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="arenas" aria-labelledby="arenas-title">
+        <h2 id="arenas-title">Home arenas</h2>
+        <ol class="arena-list">
+          <li><span class="arena-list__years">1946–1962</span> Philadelphia Arena, plus Philadelphia Convention Hall from 1952</li>
+          <li><span class="arena-list__years">1962–1971</span> Cow Palace, San Francisco Civic Auditorium, and War Memorial Gymnasium</li>
+          <li><span class="arena-list__years">1971–2019</span> Oakland Arena (later called Oracle Arena). The team played the 1996–97 season at San Jose Arena during renovations.</li>
+          <li><span class="arena-list__years">2019–now</span> Chase Center, San Francisco</li>
+        </ol>
+      </section>
+
+      <section id="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Sources</h2>
+        <p>This summary is based on the sources below. Each one opens on its own site.</p>
+        <ul class="sources">
+          <li><a href="https://en.wikipedia.org/wiki/Golden_State_Warriors">“Golden State Warriors” on Wikipedia</a>: the original article, with more than 200 detailed citations</li>
+          <li><a href="https://www.nba.com/warriors">Official Golden State Warriors website</a>: team news, schedule, and roster</li>
+          <li><a href="https://www.basketball-reference.com/teams/GSW/">Warriors franchise statistics on Basketball-Reference</a>: season-by-season records</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>Text condensed and adapted from the Wikipedia article <a href="https://en.wikipedia.org/wiki/Golden_State_Warriors">“Golden State Warriors”</a> by its contributors, used under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. This page is shared under the same license.</p>
+      <p>A student UX redesign concept. Not affiliated with Wikipedia, the Wikimedia Foundation, the NBA, or the Golden State Warriors.</p>
+      <p><a href="#top">Back to top</a></p>
+    </div>
+  </footer>
+</body>
+</html>
