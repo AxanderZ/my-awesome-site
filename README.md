@@ -50,6 +50,16 @@ Baseline WAVE report for the original article: **AIM score 3.7**, with 25 errors
 
 Also included: a skip link, landmarks, a sticky table of contents, visible focus rings, 24px minimum target size for citation markers (WCAG 2.2), an accessible combobox for search suggestions, sortable tables with `aria-sort` and a live announcement, and support for reduced motion and dark mode.
 
+**WAVE results on the live site** (September 24, 2026):
+
+| Page | AIM score | Errors | Contrast errors | Alerts |
+|---|---|---|---|---|
+| Original Wikipedia article | 3.7 | 25 | 93 | 1,147 |
+| [Golden State Warriors](https://wave.webaim.org/report#/https://axanderz.github.io/my-awesome-site/wiki/Golden_State_Warriors.html) | **10** | 0 | 0 | 2 |
+| [Stephen Curry](https://wave.webaim.org/report#/https://axanderz.github.io/my-awesome-site/wiki/Stephen_Curry.html) | **10** | 0 | 0 | 3 |
+| [Homepage](https://wave.webaim.org/report#/https://axanderz.github.io/my-awesome-site/) | **10** | 0 | 0 | 0 |
+| [Search results](https://wave.webaim.org/report#/https://axanderz.github.io/my-awesome-site/search.html?q=golden+state+warirors) | **10** | 0 | 0 | 0 |
+
 **Automated check** (`tools/check_pages.py`, axe-core 4.10 plus WAVE-style rules, light and dark themes): **0 errors, 0 contrast errors, 0 axe violations on every page.** The only alerts left are WAVE's "Link to PDF document" on citations whose original sources are PDFs: 2 on the Warriors page and 3 on the Curry page. Those source links are kept on purpose.
 
 ## How it's built
