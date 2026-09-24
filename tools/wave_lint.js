@@ -4,6 +4,11 @@ window.waveLint = async function () {
   const add = (bucket, key, el) => { (out[bucket][key] = out[bucket][key] || []).push(el ? (el.outerHTML || '').slice(0, 140) : ''); };
   const all = [...document.querySelectorAll('body *')];
   // Images
+  document.querySelectorAll('figure').forEach((fig) => {
+    const cap = fig.querySelector('figcaption'); if (!cap) return;
+    fig.querySelectorAll('img').forEach((img) => { const alt = img.alt.trim().toLowerCase().replace(/\.$/, '');
+      if (alt && cap.textContent.toLowerCase().includes(alt)) add('alerts', 'redundant alt text', img); });
+  });
   document.querySelectorAll('img').forEach((img) => {
     if (!img.hasAttribute('alt')) add('errors', img.closest('a') ? 'linked image missing alt' : 'missing alt', img);
     else if (img.alt.length > 100) add('alerts', 'long alt', img);
@@ -19,11 +24,8 @@ window.waveLint = async function () {
     if (/\.(docx?|xlsx?|pptx?)(\?|$)/i.test(a.getAttribute('href'))) add('alerts', 'link to document', a);
     if (/^(click here|here|more|read more|link)$/i.test(name)) add('alerts', 'suspicious link text', a);
     const next = links[i + 1];
-    if (next && next.href === a.href && !a.href.includes('#')) {
-      // adjacent in DOM with only whitespace/punctuation between
-      const r = document.createRange(); r.setStartAfter(a); r.setEndBefore(next);
-      if (r.toString().replace(/[\s·,|•–-]/g, '').length === 0) add('alerts', 'redundant link', a);
-    }
+    // WAVE flags consecutive links to the same URL, even with text between them.
+    if (next && next.href === a.href && !a.getAttribute('href').startsWith('#') && a.closest('main') && next.closest('main')) add('alerts', 'redundant link', a);
     if (a.hasAttribute('title') && a.title.trim() === a.textContent.trim()) add('alerts', 'redundant title', a);
     if (a.getAttribute('href').startsWith('#') && a.getAttribute('href').length > 1 && !document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)))) add('errors', 'broken same-page link', a);
   });

@@ -1210,13 +1210,37 @@ def build_article(slug):
   </div>
 </main>
 <div class="cite-pop" id="cite-pop" role="tooltip" hidden></div>'''
-    page_html = page(title=f"{title} | {SITE_NAME} Redesign", description=shortdesc, body=body, prefix=prefix, active="")
+    page_html = finalize(page(title=f"{title} | {SITE_NAME} Redesign", description=shortdesc, body=body, prefix=prefix, active=""))
     out = ROOT / "wiki" / f"{slug}.html"
     out.parent.mkdir(exist_ok=True)
     out.write_text(page_html)
     print(f"  wrote {out.relative_to(ROOT)} ({len(page_html) // 1024} KB, {total_words:,} words)")
     return {"slug": slug, "title": title, "desc": shortdesc, "words": total_words, "hero": hero_file,
             "hero_alt": img_info.get(hero_file, {}).get("desc", "") if hero_file else ""}
+
+
+def finalize(page_html):
+    """Last pass over a whole page for WAVE alerts that only show up in context."""
+    soup = BeautifulSoup(page_html, "html.parser")
+    # Redundant link: two consecutive links to the same URL → keep the first, unlink the second.
+    prev = None
+    for a in soup.select("main a[href]"):
+        href = a["href"]
+        if prev is not None and href == prev and not href.startswith("#") and "btn" not in (a.get("class") or []):
+            a.unwrap()
+            continue
+        prev = href
+    # Redundant alternative text: alt that repeats the visible caption → caption alone describes it.
+    for fig in soup.select("main figure"):
+        cap = fig.find("figcaption")
+        if cap is None:
+            continue
+        ctext = text_of(cap).lower()
+        for img in fig.find_all("img"):
+            alt = img.get("alt", "").strip().lower().rstrip(".")
+            if alt and (alt in ctext or ctext.startswith(alt[:40])):
+                img["alt"] = ""
+    return "<!DOCTYPE html>\n" + str(soup).replace("<!DOCTYPE html>", "", 1).lstrip()
 
 
 def split_first_paragraph(nodes):
@@ -1360,10 +1384,14 @@ def build_home(articles):
     <p class="attribution">Featured content is a snapshot of Wikipedia's front page for {date_str}, used under CC BY-SA 4.0.</p>
   </div>
 </main>'''
-    (ROOT / "index.html").write_text(page(title=f"{SITE_NAME} Redesign: the free encyclopedia, easier to read",
+    (ROOT / "index.html").write_text(finalize_page(title=f"{SITE_NAME} Redesign: the free encyclopedia, easier to read",
                                           description="A usability and accessibility redesign of Wikipedia's reading experience.",
                                           body=body, prefix=prefix, active="home", header_search=False))
     print("  wrote index.html")
+
+
+def finalize_page(**kw):
+    return finalize(page(**kw))
 
 
 def build_search():

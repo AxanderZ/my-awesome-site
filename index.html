@@ -1,127 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Encyclopedia Redesign: the free encyclopedia, easier to read</title>
-<meta name="description" content="A usability and accessibility redesign of Wikipedia&#x27;s reading experience.">
-<meta name="color-scheme" content="light dark">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;display=swap">
-<link rel="stylesheet" href="css/site.css">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta content="A usability and accessibility redesign of Wikipedia's reading experience." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;display=swap" rel="stylesheet"/>
+<link href="css/site.css" rel="stylesheet"/>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
 <script>
 try{var s=JSON.parse(localStorage.getItem("display")||"{}");var d=document.documentElement;if(s.theme&&s.theme!=="auto")d.dataset.theme=s.theme;if(s.size&&s.size!=="standard")d.dataset.size=s.size;if(s.width==="wide")d.dataset.width="wide";}catch(e){}
 document.documentElement.classList.add("js");
 </script>
-<script src="js/site.js" defer></script>
-
+<script defer="" src="js/site.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
-  <div class="site-header__inner">
-    <a class="brand" href="index.html"><svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="M11 12h18M11 20h18M11 28h11" stroke="var(--brand-mark-ink)" stroke-width="3" stroke-linecap="round"/></svg><span class="brand__name">Encyclopedia</span><span class="brand__tag">Redesign</span></a>
-    
-    <nav class="site-nav" aria-label="Site">
-      <ul><li><a href="search.html">Search</a></li><li><a href="https://github.com/AxanderZ/my-awesome-site#readme">About this redesign</a></li></ul>
-    </nav>
-    <div class="display">
-      <button class="display__toggle" type="button" aria-expanded="false" aria-controls="display-panel"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg><span>Display</span></button>
-      <div class="display__panel" id="display-panel" hidden>
-        <fieldset><legend>Text size</legend>
-          <label><input type="radio" name="size" value="small"> Small</label>
-          <label><input type="radio" name="size" value="standard" checked> Standard</label>
-          <label><input type="radio" name="size" value="large"> Large</label>
-        </fieldset>
-        <fieldset><legend>Page width</legend>
-          <label><input type="radio" name="width" value="standard" checked> Comfortable</label>
-          <label><input type="radio" name="width" value="wide"> Wide</label>
-        </fieldset>
-        <fieldset><legend>Color theme</legend>
-          <label><input type="radio" name="theme" value="auto" checked> Match device</label>
-          <label><input type="radio" name="theme" value="light"> Light</label>
-          <label><input type="radio" name="theme" value="dark"> Dark</label>
-        </fieldset>
-      </div>
-    </div>
-  </div>
+<div class="site-header__inner">
+<a class="brand" href="index.html"><svg aria-hidden="true" class="brand__mark" focusable="false" viewbox="0 0 40 40"><rect fill="currentColor" height="40" rx="11" width="40"></rect><path d="M11 12h18M11 20h18M11 28h11" stroke="var(--brand-mark-ink)" stroke-linecap="round" stroke-width="3"></path></svg><span class="brand__name">Encyclopedia</span><span class="brand__tag">Redesign</span></a>
+<nav aria-label="Site" class="site-nav">
+<ul><li><a href="search.html">Search</a></li><li><a href="https://github.com/AxanderZ/my-awesome-site#readme">About this redesign</a></li></ul>
+</nav>
+<div class="display">
+<button aria-controls="display-panel" aria-expanded="false" class="display__toggle" type="button"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg><span>Display</span></button>
+<div class="display__panel" hidden="" id="display-panel">
+<fieldset><legend>Text size</legend>
+<label><input name="size" type="radio" value="small"/> Small</label>
+<label><input checked="" name="size" type="radio" value="standard"/> Standard</label>
+<label><input name="size" type="radio" value="large"/> Large</label>
+</fieldset>
+<fieldset><legend>Page width</legend>
+<label><input checked="" name="width" type="radio" value="standard"/> Comfortable</label>
+<label><input name="width" type="radio" value="wide"/> Wide</label>
+</fieldset>
+<fieldset><legend>Color theme</legend>
+<label><input checked="" name="theme" type="radio" value="auto"/> Match device</label>
+<label><input name="theme" type="radio" value="light"/> Light</label>
+<label><input name="theme" type="radio" value="dark"/> Dark</label>
+</fieldset>
+</div>
+</div>
+</div>
 </header>
 <main id="main" tabindex="-1">
-  <section class="home-hero" aria-labelledby="home-title">
-    <div class="home-hero__inner">
-      <h1 id="home-title">The free encyclopedia, <span>easier to read.</span></h1>
-      <p class="lede">Search more than 7 million English Wikipedia articles, then read them in a calmer layout with summaries first and details on demand.</p>
-      <form class="search search--big" role="search" action="search.html" method="get" data-prefix="">
-  <label class="search__label" for="home-q">Search the encyclopedia</label>
-  <div class="search__field">
-    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    <input id="home-q" class="search__input" type="search" name="q" value="" placeholder="Search 7 million articles" autocomplete="off" spellcheck="false"
-      role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="home-q-list">
-    <button class="search__submit" type="submit">Search</button>
-    <ul class="search__list" id="home-q-list" role="listbox" aria-label="Suggestions" hidden></ul>
-  </div>
-  <p class="vh" id="home-q-status" role="status" aria-live="polite"></p>
+<section aria-labelledby="home-title" class="home-hero">
+<div class="home-hero__inner">
+<h1 id="home-title">The free encyclopedia, <span>easier to read.</span></h1>
+<p class="lede">Search more than 7 million English Wikipedia articles, then read them in a calmer layout with summaries first and details on demand.</p>
+<form action="search.html" class="search search--big" data-prefix="" method="get" role="search">
+<label class="search__label" for="home-q">Search the encyclopedia</label>
+<div class="search__field">
+<svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><circle cx="11" cy="11" fill="none" r="7" stroke="currentColor" stroke-width="2"></circle><path d="m20 20-4-4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+<input aria-autocomplete="list" aria-controls="home-q-list" aria-expanded="false" autocomplete="off" class="search__input" id="home-q" name="q" placeholder="Search 7 million articles" role="combobox" spellcheck="false" type="search" value=""/>
+<button class="search__submit" type="submit">Search</button>
+<ul aria-label="Suggestions" class="search__list" hidden="" id="home-q-list" role="listbox"></ul>
+</div>
+<p aria-live="polite" class="vh" id="home-q-status" role="status"></p>
 </form>
-      <p class="home-hero__try">Try: <a href="wiki/Golden_State_Warriors.html">Golden State Warriors</a> · <a href="wiki/Stephen_Curry.html">Stephen Curry</a> · <a href="search.html?q=Chase+Center">Chase Center</a></p>
-    </div>
-  </section>
-  <div class="home">
-    <section aria-labelledby="redesigned-title" class="home__section">
-      <h2 id="redesigned-title">Redesigned articles</h2>
-      <p class="section-desc">These pages are fully rebuilt in the new reading layout. Other links open the original article on Wikipedia.</p>
-      <ul class="card-grid"><li class="card card--article">
-  <p class="card__kicker">Redesigned article · 17,457 words</p>
-  <h3 class="card__title"><a href="wiki/Golden_State_Warriors.html">Golden State Warriors</a></h3>
-  <p class="card__desc">National Basketball Association team in San Francisco, California</p>
+<p class="home-hero__try">Try: <a href="wiki/Golden_State_Warriors.html">Golden State Warriors</a> · <a href="wiki/Stephen_Curry.html">Stephen Curry</a> · <a href="search.html?q=Chase+Center">Chase Center</a></p>
+</div>
+</section>
+<div class="home">
+<section aria-labelledby="redesigned-title" class="home__section">
+<h2 id="redesigned-title">Redesigned articles</h2>
+<p class="section-desc">These pages are fully rebuilt in the new reading layout. Other links open the original article on Wikipedia.</p>
+<ul class="card-grid"><li class="card card--article">
+<p class="card__kicker">Redesigned article · 17,457 words</p>
+<h3 class="card__title"><a href="wiki/Golden_State_Warriors.html">Golden State Warriors</a></h3>
+<p class="card__desc">National Basketball Association team in San Francisco, California</p>
 </li><li class="card card--article">
-  <p class="card__kicker">Redesigned article · 29,420 words</p>
-  <h3 class="card__title"><a href="wiki/Stephen_Curry.html">Stephen Curry</a></h3>
-  <p class="card__desc">American basketball player (born 1988)</p>
+<p class="card__kicker">Redesigned article · 29,420 words</p>
+<h3 class="card__title"><a href="wiki/Stephen_Curry.html">Stephen Curry</a></h3>
+<p class="card__desc">American basketball player (born 1988)</p>
 </li></ul>
-    </section>
-    <div class="home__cols">
-      <section aria-labelledby="today-title" class="home__section home__main">
-        <h2 id="today-title">Today on Wikipedia <span class="meta">Thursday, September 24, 2026</span></h2>
-        <article class="card card--feature" aria-labelledby="tfa-title">
-  <p class="card__kicker">Today's featured article</p>
-  <h3 id="tfa-title" class="card__title"><a href="https://en.wikipedia.org/wiki/Persona_%28series%29">Persona (series)</a></h3>
-  <p class="card__desc">Japanese video game franchise</p>
-  <p>Persona, previously marketed as Shin Megami Tensei: Persona outside of Japan, is a Japanese video game series and media franchise developed by Atlus and owned by Sega. Centered on a series of Japanese role-playing video games, Persona is a spin-off from Atlus&#x27; Megami Tensei franchise. The first entry in the series, Revelations: Persona, was released in 1996 for the PlayStation. The series has seen several more games since, with the most recent main entry being 2024&#x27;s Persona 3 Reload, a remake of the 2006 game…</p>
-  <p class="card__source">From Wikipedia's front page</p>
+</section>
+<div class="home__cols">
+<section aria-labelledby="today-title" class="home__section home__main">
+<h2 id="today-title">Today on Wikipedia <span class="meta">Thursday, September 24, 2026</span></h2>
+<article aria-labelledby="tfa-title" class="card card--feature">
+<p class="card__kicker">Today's featured article</p>
+<h3 class="card__title" id="tfa-title"><a href="https://en.wikipedia.org/wiki/Persona_%28series%29">Persona (series)</a></h3>
+<p class="card__desc">Japanese video game franchise</p>
+<p>Persona, previously marketed as Shin Megami Tensei: Persona outside of Japan, is a Japanese video game series and media franchise developed by Atlus and owned by Sega. Centered on a series of Japanese role-playing video games, Persona is a spin-off from Atlus' Megami Tensei franchise. The first entry in the series, Revelations: Persona, was released in 1996 for the PlayStation. The series has seen several more games since, with the most recent main entry being 2024's Persona 3 Reload, a remake of the 2006 game…</p>
+<p class="card__source">From Wikipedia's front page</p>
 </article>
-        <figure class="potd">
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Violet-backed_starling_%28Cinnyricinclus_leucogaster_verreauxi%29_female.jpg?width=960" alt="Violet-backed starling ( Cinnyricinclus leucogaster verreauxi ) female, Damaraland, Namibia" width="960" height="640" loading="lazy" decoding="async">
-  <figcaption><strong>Picture of the day.</strong>  <span class="credit">Charles J. Sharp, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></span></figcaption>
+<figure class="potd">
+<img alt="Violet-backed starling ( Cinnyricinclus leucogaster verreauxi ) female, Damaraland, Namibia" decoding="async" height="640" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Violet-backed_starling_%28Cinnyricinclus_leucogaster_verreauxi%29_female.jpg?width=960" width="960"/>
+<figcaption><strong>Picture of the day.</strong> <span class="credit">Charles J. Sharp, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a></span></figcaption>
 </figure>
-      </section>
-      <div class="home__side">
-        <section aria-labelledby="news-title" class="home__section panel">
-          <h2 id="news-title">In the news</h2>
-          <ul class="news"><li><b><a href="https://en.wikipedia.org/wiki/2026_Kohat_attack">An attack on a police complex</a></b> in <a href="https://en.wikipedia.org/wiki/Kohat">Kohat</a>, Pakistan, leaves at least 31 people dead.</li><li>The <b><a href="https://en.wikipedia.org/wiki/Tilcayo">tilcayo</a></b> <i></i>, a new species of tiger cat, is formally identified.</li><li>Former leader of Kosovo <b><a href="https://en.wikipedia.org/wiki/Hashim_Thaçi">Hashim Thaçi</a></b> is sentenced to 25 years in prison for <b><a href="https://en.wikipedia.org/wiki/War_crimes_in_the_Kosovo_War#KLA_war_crimes">war crimes during his leadership</a></b> of the <a href="https://en.wikipedia.org/wiki/Kosovo_Liberation_Army">Kosovo Liberation Army</a>.</li><li>At <b><a href="https://en.wikipedia.org/wiki/78th_Primetime_Emmy_Awards">the Primetime Emmy Awards</a></b>, <i><a href="https://en.wikipedia.org/wiki/Widow's_Bay">Widow's Bay</a></i> wins <a href="https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Comedy_Series">Outstanding Comedy Series</a>, and <i><a href="https://en.wikipedia.org/wiki/The_Pitt">The Pitt</a></i> wins <a href="https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Drama_Series">Outstanding Drama Series</a>.</li></ul>
-        </section>
-        <section aria-labelledby="otd-title" class="home__section panel">
-          <h2 id="otd-title">On this day</h2>
-          <ul class="otd"><li><span class="year">2019</span><span>The Supreme Court of the United Kingdom unanimously ruled that advice given by Prime Minister Boris Johnson to Queen Elizabeth II that Parliament should be prorogued was unlawful.</span></li><li><span class="year">1993</span><span>Norodom Sihanouk (pictured) became King of Cambodia with the restoration of the monarchy after a 23-year interregnum.</span></li><li><span class="year">1992</span><span>After his neighbor identified handwriting samples placed on local billboards by police, Oba Chandler was arrested three years after he committed a triple murder in the Tampa Bay area in Florida.</span></li><li><span class="year">1975</span><span>Dougal Haston and Doug Scott of the Southwest Face expedition became the first people to reach the summit of Mount Everest by ascending one of its faces.</span></li><li><span class="year">1964</span><span>The Warren Commission released its report to the U.S. president, concluding that Lee Harvey Oswald acted alone in the assassination of John F. Kennedy.</span></li></ul>
-        </section>
-        <section aria-labelledby="most-title" class="home__section panel">
-          <h2 id="most-title">Most read yesterday</h2>
-          <ol class="most"><li><a href="https://en.wikipedia.org/wiki/Lizzie_Borden">Lizzie Borden</a><span class="meta">586,575 views</span></li><li><a href="https://en.wikipedia.org/wiki/Elizabeth_Holmes">Elizabeth Holmes</a><span class="meta">184,994 views</span></li><li><a href="https://en.wikipedia.org/wiki/2026_Asian_Games">2026 Asian Games</a><span class="meta">163,446 views</span></li><li><a href="https://en.wikipedia.org/wiki/Aileen_Wuornos">Aileen Wuornos</a><span class="meta">160,292 views</span></li><li><a href="https://en.wikipedia.org/wiki/Angry_Anderson">Angry Anderson</a><span class="meta">151,152 views</span></li><li><a href="https://en.wikipedia.org/wiki/Monster%3A_The_Lizzie_Borden_Story">Monster: The Lizzie Borden Story</a><span class="meta">151,075 views</span></li><li><a href="https://en.wikipedia.org/wiki/India_at_the_2026_Asian_Games">India at the 2026 Asian Games</a><span class="meta">145,207 views</span></li><li><a href="https://en.wikipedia.org/wiki/Resident_Evil_%282026_film%29">Resident Evil (2026 film)</a><span class="meta">141,482 views</span></li></ol>
-        </section>
-      </div>
-    </div>
-    <section aria-labelledby="topics-title" class="home__section">
-      <h2 id="topics-title">Browse by topic</h2>
-      <ul class="chips"><li><a href="https://en.wikipedia.org/wiki/Portal:The_arts">Arts</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Biography">Biography</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Geography">Geography</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:History">History</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Mathematics">Mathematics</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Science">Science</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Society">Society</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Sports">Sports</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Technology">Technology</a></li></ul>
-    </section>
-    <p class="attribution">Featured content is a snapshot of Wikipedia's front page for Thursday, September 24, 2026, used under CC BY-SA 4.0.</p>
-  </div>
+</section>
+<div class="home__side">
+<section aria-labelledby="news-title" class="home__section panel">
+<h2 id="news-title">In the news</h2>
+<ul class="news"><li><b><a href="https://en.wikipedia.org/wiki/2026_Kohat_attack">An attack on a police complex</a></b> in <a href="https://en.wikipedia.org/wiki/Kohat">Kohat</a>, Pakistan, leaves at least 31 people dead.</li><li>The <b><a href="https://en.wikipedia.org/wiki/Tilcayo">tilcayo</a></b> <i></i>, a new species of tiger cat, is formally identified.</li><li>Former leader of Kosovo <b><a href="https://en.wikipedia.org/wiki/Hashim_Thaçi">Hashim Thaçi</a></b> is sentenced to 25 years in prison for <b><a href="https://en.wikipedia.org/wiki/War_crimes_in_the_Kosovo_War#KLA_war_crimes">war crimes during his leadership</a></b> of the <a href="https://en.wikipedia.org/wiki/Kosovo_Liberation_Army">Kosovo Liberation Army</a>.</li><li>At <b><a href="https://en.wikipedia.org/wiki/78th_Primetime_Emmy_Awards">the Primetime Emmy Awards</a></b>, <i><a href="https://en.wikipedia.org/wiki/Widow's_Bay">Widow's Bay</a></i> wins <a href="https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Comedy_Series">Outstanding Comedy Series</a>, and <i><a href="https://en.wikipedia.org/wiki/The_Pitt">The Pitt</a></i> wins <a href="https://en.wikipedia.org/wiki/Primetime_Emmy_Award_for_Outstanding_Drama_Series">Outstanding Drama Series</a>.</li></ul>
+</section>
+<section aria-labelledby="otd-title" class="home__section panel">
+<h2 id="otd-title">On this day</h2>
+<ul class="otd"><li><span class="year">2019</span><span>The Supreme Court of the United Kingdom unanimously ruled that advice given by Prime Minister Boris Johnson to Queen Elizabeth II that Parliament should be prorogued was unlawful.</span></li><li><span class="year">1993</span><span>Norodom Sihanouk (pictured) became King of Cambodia with the restoration of the monarchy after a 23-year interregnum.</span></li><li><span class="year">1992</span><span>After his neighbor identified handwriting samples placed on local billboards by police, Oba Chandler was arrested three years after he committed a triple murder in the Tampa Bay area in Florida.</span></li><li><span class="year">1975</span><span>Dougal Haston and Doug Scott of the Southwest Face expedition became the first people to reach the summit of Mount Everest by ascending one of its faces.</span></li><li><span class="year">1964</span><span>The Warren Commission released its report to the U.S. president, concluding that Lee Harvey Oswald acted alone in the assassination of John F. Kennedy.</span></li></ul>
+</section>
+<section aria-labelledby="most-title" class="home__section panel">
+<h2 id="most-title">Most read yesterday</h2>
+<ol class="most"><li><a href="https://en.wikipedia.org/wiki/Lizzie_Borden">Lizzie Borden</a><span class="meta">586,575 views</span></li><li><a href="https://en.wikipedia.org/wiki/Elizabeth_Holmes">Elizabeth Holmes</a><span class="meta">184,994 views</span></li><li><a href="https://en.wikipedia.org/wiki/2026_Asian_Games">2026 Asian Games</a><span class="meta">163,446 views</span></li><li><a href="https://en.wikipedia.org/wiki/Aileen_Wuornos">Aileen Wuornos</a><span class="meta">160,292 views</span></li><li><a href="https://en.wikipedia.org/wiki/Angry_Anderson">Angry Anderson</a><span class="meta">151,152 views</span></li><li><a href="https://en.wikipedia.org/wiki/Monster%3A_The_Lizzie_Borden_Story">Monster: The Lizzie Borden Story</a><span class="meta">151,075 views</span></li><li><a href="https://en.wikipedia.org/wiki/India_at_the_2026_Asian_Games">India at the 2026 Asian Games</a><span class="meta">145,207 views</span></li><li><a href="https://en.wikipedia.org/wiki/Resident_Evil_%282026_film%29">Resident Evil (2026 film)</a><span class="meta">141,482 views</span></li></ol>
+</section>
+</div>
+</div>
+<section aria-labelledby="topics-title" class="home__section">
+<h2 id="topics-title">Browse by topic</h2>
+<ul class="chips"><li><a href="https://en.wikipedia.org/wiki/Portal:The_arts">Arts</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Biography">Biography</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Geography">Geography</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:History">History</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Mathematics">Mathematics</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Science">Science</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Society">Society</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Sports">Sports</a></li><li><a href="https://en.wikipedia.org/wiki/Portal:Technology">Technology</a></li></ul>
+</section>
+<p class="attribution">Featured content is a snapshot of Wikipedia's front page for Thursday, September 24, 2026, used under CC BY-SA 4.0.</p>
+</div>
 </main>
 <footer class="site-footer">
-  <div class="site-footer__inner">
-    <div class="site-footer__brand"><svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="M11 12h18M11 20h18M11 28h11" stroke="var(--brand-mark-ink)" stroke-width="3" stroke-linecap="round"/></svg><span>Encyclopedia Redesign</span></div>
-    <p>Article text and data come from <a href="https://en.wikipedia.org/">Wikipedia</a> and its contributors under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Images are credited on each page.</p>
-    <p>A student UX project, 2026. Not affiliated with Wikipedia or the Wikimedia Foundation. <a href="https://github.com/AxanderZ/my-awesome-site">Source code on GitHub</a>.</p>
-  </div>
+<div class="site-footer__inner">
+<div class="site-footer__brand"><svg aria-hidden="true" class="brand__mark" focusable="false" viewbox="0 0 40 40"><rect fill="currentColor" height="40" rx="11" width="40"></rect><path d="M11 12h18M11 20h18M11 28h11" stroke="var(--brand-mark-ink)" stroke-linecap="round" stroke-width="3"></path></svg><span>Encyclopedia Redesign</span></div>
+<p>Article text and data come from <a href="https://en.wikipedia.org/">Wikipedia</a> and its contributors under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Images are credited on each page.</p>
+<p>A student UX project, 2026. Not affiliated with Wikipedia or the Wikimedia Foundation. <a href="https://github.com/AxanderZ/my-awesome-site">Source code on GitHub</a>.</p>
+</div>
 </footer>
 </body>
 </html>
