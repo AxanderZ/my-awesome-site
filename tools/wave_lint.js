@@ -17,6 +17,8 @@ window.waveLint = async function () {
   });
   // Links / buttons
   const links = [...document.querySelectorAll('a[href]')];
+  const outLinks = links.filter((a) => !a.getAttribute('href').startsWith('#') && a.closest('main'));
+  outLinks.forEach((a, i) => { if (i && outLinks[i - 1].href === a.href) add('alerts', 'redundant link', a); });
   links.forEach((a, i) => {
     const name = (a.getAttribute('aria-label') || a.textContent || '').trim() || [...a.querySelectorAll('img')].map((x) => x.alt).join('');
     if (!name) add('errors', 'empty link', a);
@@ -24,8 +26,7 @@ window.waveLint = async function () {
     if (/\.(docx?|xlsx?|pptx?)(\?|$)/i.test(a.getAttribute('href'))) add('alerts', 'link to document', a);
     if (/^(click here|here|more|read more|link)$/i.test(name)) add('alerts', 'suspicious link text', a);
     const next = links[i + 1];
-    // WAVE flags consecutive links to the same URL, even with text between them.
-    if (next && next.href === a.href && !a.getAttribute('href').startsWith('#') && a.closest('main') && next.closest('main')) add('alerts', 'redundant link', a);
+
     if (a.hasAttribute('title') && a.title.trim() === a.textContent.trim()) add('alerts', 'redundant title', a);
     if (a.getAttribute('href').startsWith('#') && a.getAttribute('href').length > 1 && !document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)))) add('errors', 'broken same-page link', a);
   });

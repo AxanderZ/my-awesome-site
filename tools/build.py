@@ -1226,7 +1226,9 @@ def finalize(page_html):
     prev = None
     for a in soup.select("main a[href]"):
         href = a["href"]
-        if prev is not None and href == prev and not href.startswith("#") and "btn" not in (a.get("class") or []):
+        if href.startswith("#"):
+            continue            # WAVE skips in-page links (citation markers) when comparing neighbors
+        if href == prev and "btn" not in (a.get("class") or []):
             a.unwrap()
             continue
         prev = href
