@@ -1,56 +1,70 @@
-# Golden State Warriors: Wikipedia Article Redesign
+# Encyclopedia Redesign
 
-A UX class project that rebuilds the Wikipedia article
-[Golden State Warriors](https://en.wikipedia.org/wiki/Golden_State_Warriors) to fix its most severe
-usability problems (found with Nielsen's 10 heuristics) and to raise its WAVE accessibility score.
+A UX class project that rebuilds Wikipedia's core reading experience (the homepage, the search flow, and a full article followed through to a related article), fixing its most severe usability problems and its WAVE accessibility errors.
 
-Open `index.html` in a browser, or serve the folder with any static server:
+**Live site:** https://axanderz.github.io/my-awesome-site/
 
-```bash
-python3 -m http.server 8765
-```
+## The task this redesign supports
 
-The page is plain HTML, CSS and JavaScript with no build step. Everything works without JavaScript; scripts only add enhancements.
+> *"Find out how many championships the Golden State Warriors have won and who was Finals MVP in 2022, then learn how Stephen Curry's career began."*
+
+Path: **Homepage** → **search** "golden state warriors" (autocomplete or results page) → **[Golden State Warriors](https://axanderz.github.io/my-awesome-site/wiki/Golden_State_Warriors.html)** → related-article link → **[Stephen Curry](https://axanderz.github.io/my-awesome-site/wiki/Stephen_Curry.html)**.
+
+| Page | File |
+|---|---|
+| Homepage | `index.html` |
+| Search results (live Wikipedia search) | `search.html` |
+| Article | `wiki/Golden_State_Warriors.html` (all 17,457 words of the original) |
+| Related article | `wiki/Stephen_Curry.html` (all 29,420 words of the original) |
+| Error page | `404.html` |
 
 ## Heuristic violations resolved
 
-| Heuristic | Severity | Problem on Wikipedia | What the redesign does |
-|---|---|---|---|
-| #8 Aesthetic and minimalist design | 3 | About 17,500 words, 34,000 px of scrolling, 2,795 links and 217 citation markers. Key facts are buried. | An **At a glance** section (stat cards and a fact list) answers the common questions first. History is condensed into a 7-era **timeline**, each era a two-sentence summary with optional "More about this era" details. Paragraphs are capped at about 70 characters per line, and there are no inline link or citation clutter. |
-| #6 Recognition rather than recall | 2 | Roster uses "(TW)", a red ✚ icon, and "Pos." / "DOB" codes, explained only in a legend in a separate column. | The legend sits **above** the table, and statuses appear as text badges ("Two-way contract", "Injured") beside each name. Column names are spelled out ("Jersey number", "Position", "Born"), and positions are written in full ("Forward / Center"). |
-| #2 Match between system and the real world | 2 | Wiki jargon: "Talk", "View source", "View history", "v · t · e", an unexplained padlock, mixed [a]/[1] markers. | Plain-language actions: **Discuss this article**, **See who edited it**, **Suggest a correction**. Page protection is explained in a sentence, and a **Sources** section describes each source instead of using bracket numbers. |
+| Heuristic (severity) | Problem on Wikipedia | Change in the redesign |
+|---|---|---|
+| **#8 Aesthetic and minimalist design (3)** | 17,500 words, about 40 screens, 2,795 links. Key facts are buried. | **Nothing is removed; it's reorganized.** "At a glance" stat cards and a fact list come first. "History in brief" gives a two-sentence summary per era, with a link to the full text. Every subsection is a collapsed panel showing its reading time, with "Expand all" per section. The reading column is capped at a comfortable width (46rem). Links use a quiet underline instead of loud blue, citations are small chips, and the 217 sources and the navigation boxes sit in collapsed panels. |
+| **#6 Recognition rather than recall (2)** | Roster codes "(TW)" and a red ✚ are explained only in a separate legend. "Pos.", "DOB" and stat abbreviations are unexplained. | The roster legend sits **above** the table, and statuses are text badges ("Two-way contract", "Injured") next to each name. Columns are spelled out ("Jersey number", "Born"). Every table using abbreviations (GP, MPG, FG%…) gets a key above it. Citation previews show the source on hover or focus, so readers don't have to jump away and remember their place. |
+| **#2 Match between system and the real world (2)** | "Talk", "View source", "View history", "v · t · e", unexplained padlock, mixed [a]/[1] markers. | Plain-language actions: **Discuss this article**, **See who edited it**, **Suggest a correction**. Protection is explained in a sentence. Navboxes become "Related topics" with no "v · t · e". "References" is renamed **Sources**, and "External links" is renamed **Elsewhere on the web**. Notes and sources are visually distinct and announced as "Note a" / "Source 12". |
 
-The redesign keeps what Wikipedia already does well: a table of contents that highlights the current section (H1), reversible reading settings for text size and a light/dark theme (H3, H7), and conventional search and header placement (H4).
+The redesign keeps what Wikipedia already does well:
+- **H1:** a contents list that highlights the current section, plus a reading progress bar.
+- **H3 and H7:** reversible display settings for text size, width and theme.
+- **H4:** a conventional header.
+- **H5:** search suggestions.
+- **H9:** "Showing results for … / Search instead for …" spelling correction, plus a clear error with a retry button if search is unreachable.
 
-## Accessibility issues resolved (WAVE baseline: AIM score 3.7/10)
+## Accessibility issues resolved
 
-| WAVE finding on Wikipedia | Fix in this redesign |
+Baseline WAVE report for the original article: **AIM score 3.7**, with 25 errors, 93 contrast errors and 1,147 alerts.
+
+| WAVE finding on Wikipedia | Fix |
 |---|---|
-| 23 missing or linked-image missing alt text | The one content image has descriptive alt text. Decorative SVGs use `aria-hidden="true"`. |
-| 1 missing form label | Search has a visible `<label for="search-input">`. |
-| 1 empty link | Every link has text. |
-| 93 very-low-contrast errors (blue links on tinted navboxes, about 3.5:1) | Color tokens tested at **7.3:1 or higher** in both light and dark themes, above even the WCAG AAA 7:1 level. |
-| 3 missing fieldsets | Radio groups are wrapped in `<fieldset>` and `<legend>`. |
-| 13 layout tables, 1 possible table caption | Tables are used only for data, each with a `<caption>` and `scope`d header cells. Layout uses CSS grid. |
-| 1,099 redundant title texts, 20 accesskeys, 8 redundant links | No `title` attributes, access keys, or duplicate adjacent links. |
+| 4 missing alt text, 19 linked images missing alt | Every image has alt text. Descriptions come from Wikimedia Commons (95 characters max), and icons get `alt=""`. File links around images are removed. |
+| 1 missing form label | Every search field has a `<label>`. |
+| 1 empty link | Icon-only links (Wikidata edit pencils) are removed. |
+| 93 very low contrast (team-color table headers, tinted navboxes) | Inline colors are stripped, and every text color pair measures at least 6.2:1 in light and dark themes. |
+| 13 layout tables, 1 possible table caption | Layout tables become CSS layouts. Data tables get a `<caption>`, `<thead>` and `scope`, and empty header cells are removed. |
+| 1,099 redundant title texts, 20 accesskeys, 8 redundant links | `title` attributes and access keys are removed, and the duplicate "Home" link is gone. |
+| 3 missing fieldsets | Display options are grouped with `<fieldset>`/`<legend>`. |
+| Bold paragraphs used as headings | Converted to real headings, so screen-reader heading navigation works. |
 
-Other accessibility features: a skip link, landmarks (`header`, `main`, `aside`, `nav`, `footer`), one `h1` with a logical heading order, a visible focus ring, 44 px touch targets, sortable table headers that set `aria-sort` and announce changes through a live region, `prefers-reduced-motion` and `prefers-color-scheme` support, and a layout that works down to 320 px wide.
+Also included: a skip link, landmarks, a sticky table of contents, visible focus rings, 24px minimum target size for citation markers (WCAG 2.2), an accessible combobox for search suggestions, sortable tables with `aria-sort` and a live announcement, and support for reduced motion and dark mode.
 
-Automated check: [axe-core](https://github.com/dequelabs/axe-core) 4.10 (WCAG 2.2 A/AA and best-practice rules) reports **0 violations** in both light and dark themes.
+**Automated check** (`tools/check_pages.py`, axe-core 4.10 plus WAVE-style rules, light and dark themes): **0 errors, 0 contrast errors, 0 axe violations on every page.** The only alerts left are WAVE's "Link to PDF document" on citations whose original sources are PDFs: 2 on the Warriors page and 3 on the Curry page. Those source links are kept on purpose.
 
-## Files
+## How it's built
 
+`tools/build.py` downloads the current articles from the Wikipedia API and turns them into the redesigned pages: cleanup, restructuring, accessibility fixes and image credits. It also snapshots today's featured content for the homepage. The generated HTML is committed, so the site is plain static files.
+
+```bash
+pip install -r tools/requirements.txt
 ```
-index.html       the redesigned article
-css/styles.css   design tokens, light and dark themes, layout
-js/main.js       table-of-contents highlight, reading settings, history expand/collapse, sortable roster
+```bash
+python3 tools/build.py
 ```
+
+To run the checks, serve the folder (`python3 -m http.server 8765`), then run `python3 tools/check_pages.py` (needs `pip install playwright` and Google Chrome).
 
 ## Credits and license
 
-Article text is condensed and adapted from the Wikipedia article
-["Golden State Warriors"](https://en.wikipedia.org/wiki/Golden_State_Warriors) by its contributors, under
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). This project is shared under the same license.
-Photo of Stephen Curry by Keith Allison, [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/), via Wikimedia Commons.
-
-This is a student redesign concept, not affiliated with Wikipedia, the Wikimedia Foundation, the NBA, or the Golden State Warriors.
+Article text and data come from Wikipedia and its contributors under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). This project is shared under the same license. Images come from Wikimedia Commons and are credited on each page. The at-a-glance summaries and "History in brief" were written for this redesign. This is a student project, not affiliated with Wikipedia or the Wikimedia Foundation.

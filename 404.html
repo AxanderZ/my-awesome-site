@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | Encyclopedia Redesign</title>
+<meta name="description" content="Page not found.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;display=swap">
+<link rel="stylesheet" href="/my-awesome-site/css/site.css">
+<link rel="icon" href="/my-awesome-site/favicon.svg" type="image/svg+xml">
+<script>
+try{var s=JSON.parse(localStorage.getItem("display")||"{}");var d=document.documentElement;if(s.theme&&s.theme!=="auto")d.dataset.theme=s.theme;if(s.size&&s.size!=="standard")d.dataset.size=s.size;if(s.width==="wide")d.dataset.width="wide";}catch(e){}
+document.documentElement.classList.add("js");
+</script>
+<script src="/my-awesome-site/js/site.js" defer></script>
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/my-awesome-site/index.html"><svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="M11 12h18M11 20h18M11 28h11" stroke="var(--brand-mark-ink)" stroke-width="3" stroke-linecap="round"/></svg><span class="brand__name">Encyclopedia</span><span class="brand__tag">Redesign</span></a>
+    
+    <nav class="site-nav" aria-label="Site">
+      <ul><li><a href="/my-awesome-site/search.html">Search</a></li><li><a href="https://github.com/AxanderZ/my-awesome-site#readme">About this redesign</a></li></ul>
+    </nav>
+    <div class="display">
+      <button class="display__toggle" type="button" aria-expanded="false" aria-controls="display-panel"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg><span>Display</span></button>
+      <div class="display__panel" id="display-panel" hidden>
+        <fieldset><legend>Text size</legend>
+          <label><input type="radio" name="size" value="small"> Small</label>
+          <label><input type="radio" name="size" value="standard" checked> Standard</label>
+          <label><input type="radio" name="size" value="large"> Large</label>
+        </fieldset>
+        <fieldset><legend>Page width</legend>
+          <label><input type="radio" name="width" value="standard" checked> Comfortable</label>
+          <label><input type="radio" name="width" value="wide"> Wide</label>
+        </fieldset>
+        <fieldset><legend>Color theme</legend>
+          <label><input type="radio" name="theme" value="auto" checked> Match device</label>
+          <label><input type="radio" name="theme" value="light"> Light</label>
+          <label><input type="radio" name="theme" value="dark"> Dark</label>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</header>
+<main id="main" tabindex="-1" class="notfound">
+  <p class="eyebrow">Error 404</p>
+  <h1>We couldn't find that page</h1>
+  <p class="lede">The address may be mistyped, or the page may have moved. Try searching for the article instead.</p>
+  <form class="search search--big" role="search" action="/my-awesome-site/search.html" method="get" data-prefix="/my-awesome-site/">
+  <label class="search__label" for="nf-q">Search the encyclopedia</label>
+  <div class="search__field">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input id="nf-q" class="search__input" type="search" name="q" value="" placeholder="Search 7 million articles" autocomplete="off" spellcheck="false"
+      role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="nf-q-list">
+    <button class="search__submit" type="submit">Search</button>
+    <ul class="search__list" id="nf-q-list" role="listbox" aria-label="Suggestions" hidden></ul>
+  </div>
+  <p class="vh" id="nf-q-status" role="status" aria-live="polite"></p>
+</form>
+  <div><a class="btn" href="/my-awesome-site/index.html">Go to the homepage</a></div>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand"><svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="currentColor"/><path d="M11 12h18M11 20h18M11 28h11" stroke="var(--brand-mark-ink)" stroke-width="3" stroke-linecap="round"/></svg><span>Encyclopedia Redesign</span></div>
+    <p>Article text and data come from <a href="https://en.wikipedia.org/">Wikipedia</a> and its contributors under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Images are credited on each page.</p>
+    <p>A student UX project, 2026. Not affiliated with Wikipedia or the Wikimedia Foundation. <a href="https://github.com/AxanderZ/my-awesome-site">Source code on GitHub</a>.</p>
+  </div>
+</footer>
+</body>
+</html>
